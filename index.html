@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Subdivision Metronome</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#12141a" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Metronome" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="transport">
+      <div class="bpm-block">
+        <div class="bpm-display">
+          <input id="bpmValue" class="bpm-input" type="number" inputmode="numeric" min="30" max="300" step="1" value="120" aria-label="Tempo in beats per minute" />
+          <span class="bpm-label">BPM</span>
+        </div>
+        <div class="tempo-controls">
+          <button class="tempo-btn" data-adjust="-5">−5</button>
+          <button class="tempo-btn" data-adjust="-1">−1</button>
+          <button class="tempo-btn" data-adjust="1">+1</button>
+          <button class="tempo-btn" data-adjust="5">+5</button>
+        </div>
+      </div>
+
+      <div class="transport-actions">
+        <button id="tapTempoBtn" class="tap-btn">TAP</button>
+        <button id="playStopBtn" class="play-btn" aria-pressed="false">
+          <span id="playStopLabel">▶ Play</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="mixer" id="mixer">
+      <!-- Channel strips injected by main.js -->
+    </main>
+
+    <footer class="status-bar">
+      <span id="statusText">Engine idle. Press Play to start the audio clock.</span>
+      <span id="audioStateText"></span>
+    </footer>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
